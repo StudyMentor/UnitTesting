@@ -1,45 +1,52 @@
 package dev.upc.pe;
+
 import java.util.ArrayList;
 
 public class Estudiante extends Usuario {
-    private ArrayList<Tutoria> tutoresInscritos;
-    private ArrayList<Tutor> tutoriasInscritas;
+	private ArrayList<Tutor> tutoresInscritos;
+	private ArrayList<Tutoria> tutoriasInscritas;
 
-    public Estudiante(String usuario, String contraseña) {
-        super(usuario, contraseña, 2);
-        tutoresInscritos = new ArrayList<>();
-        setTutoriasInscritas(new ArrayList<>());
-    }
-    
-    public boolean inscribirseTutoria(Tutoria tutoria) {
-    	if(tutoria != null ) {
-    		tutoresInscritos.add(tutoria);
-        	return true;
-    	}
-    	return false;
-    }
-
-    public void publicarReseña() {
-    	
-    }
-    
-    public boolean busquedaTutoria(ArrayList<Tutoria> tutorias, String name) {
-    	boolean auxEncontrado = false;
-    	for(Tutoria tutoria: tutorias) {
-    		if(tutoria.getNombre()==name) {
-    			auxEncontrado = true;
-    			continue;
-    		}
-    	}
-		return auxEncontrado;
-    	
-    }
-
-	public ArrayList<Tutor> getTutoriasInscritas() {
-		return tutoriasInscritas;
+	public Estudiante(String usuario, String contraseña) {
+		super(usuario, contraseña, 2);
+		this.tutoresInscritos = new ArrayList<>();
+		this.tutoriasInscritas = new ArrayList<>();
 	}
 
-	public void setTutoriasInscritas(ArrayList<Tutor> tutoriasInscritas) {
+	public boolean inscribirseTutoria(Tutoria tutoria) {
+		if (tutoria != null) {
+			tutoriasInscritas.add(tutoria);
+			return true;
+		}
+		return false;
+	}
+
+	public boolean publicarResenia(String nombreTutoria, String mensaje) {
+		for (int i = 0; i < this.tutoriasInscritas.size(); i++) {
+			if (nombreTutoria == this.tutoriasInscritas.get(i).getNombre()) {
+				this.tutoriasInscritas.get(i).publicarReseña(mensaje);
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public boolean busquedaTutoria(ArrayList<Tutoria> tutorias, String name) {
+		boolean auxEncontrado = false;
+		for (Tutoria tutoria : tutorias) {
+			if (tutoria.getNombre() == name) {
+				auxEncontrado = true;
+				continue;
+			}
+		}
+		return auxEncontrado;
+
+	}
+
+	public ArrayList<Tutoria> getTutoriasInscritas() {
+		return this.tutoriasInscritas;
+	}
+
+	public void setTutoriasInscritas(ArrayList<Tutoria> tutoriasInscritas) {
 		this.tutoriasInscritas = tutoriasInscritas;
 	}
 }

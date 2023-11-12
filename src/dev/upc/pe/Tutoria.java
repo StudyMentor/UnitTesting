@@ -11,34 +11,36 @@ public class Tutoria {
 	private ArrayList<Documento> documentos;
 	private Reseña reseña;
 	private String nombre;
-;
 
-    public Tutoria() {
-    }
-    public Tutoria(String name){
-    	this.nombre = name;
-    }
+	public Tutoria() {
+	}
 
-    public boolean generarEnlace() {
-    	if(this.grabacion == null) {
-    		this.grabacion = Enlace.generarEnlaceConDatosAleatorios();
-    		return true;
-    	} else {
-    		return false;
-    	}
-    }
-    
-    public boolean generarReunion() {
-    	if(this.reunion == null) {
-    		this.reunion = Enlace.generarEnlaceConDatosAleatorios();
-    		return true;
-    	} else {
-    		return false;
-    	}
-    }
-    
-    
-    
+	public Tutoria(String name) {
+		this.nombre = name;
+		this.reseña = new Reseña();
+	}
+
+	public boolean generarEnlace() {
+		if (this.grabacion == null) {
+			this.grabacion = Enlace.generarEnlaceConDatosAleatorios();
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public boolean generarReunion() {
+		if (this.reunion == null) {
+			this.reunion = Enlace.generarEnlaceConDatosAleatorios();
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public void publicarReseña(String mensaje) {
+		this.reseña.setMensaje(mensaje);
+	}
 
 	public Estudiante getEstudiante() {
 		return estudiante;
@@ -96,17 +98,12 @@ public class Tutoria {
 		this.reseña = reseña;
 	}
 
-
-
 	public String getNombre() {
 		return nombre;
 	}
 
-
-	
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-    
-    
+
 }
