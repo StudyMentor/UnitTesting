@@ -13,11 +13,14 @@ public class Tutoria {
 	private String nombre;
 
 	public Tutoria() {
+		this.reseña = new Reseña();
+		this.documentos = new ArrayList<Documento>();
 	}
 
 	public Tutoria(String name) {
 		this.nombre = name;
 		this.reseña = new Reseña();
+		this.documentos = new ArrayList<Documento>();
 	}
 
 	public boolean generarEnlace() {
