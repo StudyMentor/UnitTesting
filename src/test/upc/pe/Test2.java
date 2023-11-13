@@ -94,4 +94,31 @@ public class Test2 {
 		boolean result = tutor.subirDocumentosTutoria("Patrones de software", documentos);
 		assertTrue(result);
 	}
+	
+	@Test
+	public void testComprobarTamanioDocumentos() {
+		Tutor tutor = new Tutor("Jorge", "admin");
+
+		String nombreTutoria = "Patrones de software";
+		Tutoria tutoria = new Tutoria(nombreTutoria);
+
+		tutor.agregarCurso(tutoria);
+
+		Documento documento1 = new Documento("Diagrama de clases", tutor);
+		Documento documento2 = new Documento("Patrones de creacion", tutor);
+		Documento documento3 = new Documento("Patrones de estructuracion", tutor);
+		Documento documento4 = new Documento("Patrones de comportamiento", tutor);
+		Documento documento5 = new Documento("Diagramas de flujo", tutor);
+
+		ArrayList<Documento> documentos = new ArrayList<>();
+		documentos.add(documento1);
+		documentos.add(documento2);
+		documentos.add(documento3);
+		documentos.add(documento4);
+		documentos.add(documento5);
+		
+		tutor.subirDocumentosTutoria("Patrones de software", documentos);
+		System.out.println(tutoria.getDocumentos().size());
+		assertTrue(tutoria.getDocumentos().size() == 5);
+	}
 }

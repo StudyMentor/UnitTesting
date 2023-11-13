@@ -108,5 +108,11 @@ public class Tutoria {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	
+	public void agregarDocumentos(ArrayList<Documento> documentos) {
+		for (int i = 0; i < documentos.size() ; i++) {
+			this.documentos.add(documentos.get(i));
+		}
+	}
 
 }

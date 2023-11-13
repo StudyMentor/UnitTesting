@@ -24,11 +24,10 @@ public class Tutor extends Usuario {
 	public boolean subirDocumentosTutoria(String nombreTutoria, ArrayList<Documento> documentos) {
 		for (int i = 0; i < this.listaTutorias.size(); i++) {
 			if (nombreTutoria == this.listaTutorias.get(i).getNombre()) {
-				this.listaTutorias.get(i).setDocumentos(documentos);
+				this.listaTutorias.get(i).agregarDocumentos(documentos);
 				return true;
 			}
 		}
-
 		return false;
 	}
 
